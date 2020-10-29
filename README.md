@@ -2,6 +2,7 @@
 Demo of media pipe python integration with Django
 
 # Server Setup
+- Temporary Server (Dwayne's Personal) `gcloud beta compute ssh --zone "us-east4-c" "mediapipe-server" --project "mystical-slate-241320"`
 - Follow https://google.github.io/mediapipe/getting_started/install.html#installing-on-debian-and-ubuntu
 - `GLOG_logtostderr=1 bazel run --define MEDIAPIPE_DISABLE_GPU=1 mediapipe/examples/desktop/hello_world:hello_world`
 
