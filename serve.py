@@ -22,11 +22,11 @@ s3 = boto3.resource('s3')
 
 os.environ["GLOG_logtostderr"]="1"
 # https://google.github.io/mediapipe/solutions/hands.html#desktop
-hello_world_build_command = "bazel run --define MEDIAPIPE_DISABLE_GPU=1 mediapipe/examples/desktop/hello_world:hello_world"
-cpu_build_bash_command = "bazel run --define MEDIAPIPE_DISABLE_GPU=1 mediapipe/examples/desktop/hand_tracking:hand_tracking_cpu"
-gpu_build_bash_command = "bazel run --define MEDIAPIPE_DISABLE_GPU=1 mediapipe/examples/desktop/hand_tracking:hand_tracking_gpu"
+hello_world_build_command = "bazel run --define MEDIAPIPE_DISABLE_GPU=1 /mediapipe/mediapipe/examples/desktop/hello_world:hello_world"
+cpu_build_bash_command = "bazel run --define MEDIAPIPE_DISABLE_GPU=1 /mediapipe/mediapipe/examples/desktop/hand_tracking:hand_tracking_cpu"
+gpu_build_bash_command = "bazel run --define MEDIAPIPE_DISABLE_GPU=1 /mediapipe/mediapipe/examples/desktop/hand_tracking:hand_tracking_gpu"
 # https://google.github.io/mediapipe/getting_started/building_examples.html#option-1-running-on-cpu
-cpu_run_command = "bazel-bin/mediapipe/examples/desktop/hand_tracking/hand_tracking_cpu --calculator_graph_config_file=mediapipe/graphs/hand_tracking/hand_tracking_desktop_live.pbtxt"
+cpu_run_command = "/mediapipe/bazel-bin/mediapipe/examples/desktop/hand_tracking/hand_tracking_cpu --calculator_graph_config_file=/mediapipe/mediapipe/graphs/hand_tracking/hand_tracking_desktop_live.pbtxt"
 
 
 @app.route('/')
@@ -60,7 +60,7 @@ def hand():
            logger.error(f'{download_error.response["Error"]["Code"]}: {download_error.response["Error"]["Message"]}')
            return Response("Not Found", status=404)
 
-    cmd = cpu_run_command + f'--input_video_path="{source_local_path}" --output_video_path="{processed_local_path}"'
+    cmd = cpu_run_command + f' --input_video_path="{source_local_path}" --output_video_path="{processed_local_path}"'
     process = subprocess.Popen(cmd.split(), stdout=subprocess.PIPE)
     output, process_error = process.communicate()
     logger.info(output)
@@ -70,9 +70,9 @@ def hand():
 
     try:
         s3.Bucket(S3_BUCKET_NAME).upload_file(processed_local_path, processed_object_key)
-    except botocore.exceptions.S3UploadFailedError as upload_error:
-        logger.error(f'error: {upload_error}')
-        return Response("S3 Upload error", status=500)
+    # except boto3.S3UploadFailedError as upload_error:
+    #     logger.error(f'error: {upload_error}')
+    #     return Response("S3 Upload error", status=500)
     except botocore.exceptions.ClientError as generic_error:
         logger.error(f'{generic_error.response["Error"]["Code"]}: {generic_error.response["Error"]["Message"]}')
         return Response("Internal Server Error", status=500)
