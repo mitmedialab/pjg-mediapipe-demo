@@ -31,3 +31,5 @@ Demo of media pipe python integration with Django
 - https://a-counting-sign-staging.herokuapp.com/transcribe/test/test_fist
 - https://a-counting-sign-staging.herokuapp.com/transcribe/test/test_other_heuristics
 - https://a-counting-sign-language.s3.amazonaws.com/demos/main_demos_mp4/fist_only/12.mp4
+- https://a-counting-sign-language.s3.amazonaws.com/demos/main_demos_mp4/fist_only/fist_only_demo_10_16_20.mp4
+- https://a-counting-sign-language.s3.amazonaws.com/46914194/126f8d71-3116-43b0-8cd5-d7c73cdf8185/archive.mp4 
