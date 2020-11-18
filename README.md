@@ -15,7 +15,8 @@ Demo of media pipe python integration with Django
 
 #### Demo Server Container
 - `docker-compose up`
-- `curl -d '{"archive_id": "013bc8ff-f069-44d9-af77-d170acd1c9c6"}' -H 'Content-Type: application/json' localhost:8080/hand`
+- `curl -d '{"archive_id": "126f8d71-3116-43b0-8cd5-d7c73cdf8185"}' -H 'Content-Type: application/json' localhost:8080/hand`
+- Run time is 5-7min output is expected [here](https://s3.console.aws.amazon.com/s3/buckets/a-counting-sign-language-dev?region=us-east-1&prefix=46914194/126f8d71-3116-43b0-8cd5-d7c73cdf8185/&showversions=false)
 
 ### Cloud Run
 - ...

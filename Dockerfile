@@ -1,13 +1,13 @@
 FROM mediapipe:latest
 ENV PYTHONUNBUFFERED 1
 
-RUN mkdir -p /webapps/mediapipe
+WORKDIR /mediapipe
 
-WORKDIR /webapps/mediapipe
+COPY serve.py /mediapipe/
+COPY requirements.txt /mediapipe/requirements_server.txt
+RUN pip3 install -r requirements_server.txt
 
-COPY requirements.txt serve.py /webapps/mediapipe/
-RUN pip3 install -r requirements.txt
-
+#RUN mkdir -p /webapps/mediapipe
 #RUN addgroup webapps
 #RUN useradd -g webapps mediapipe
 #RUN chown -R --no-dereference mediapipe:webapps /webapps/mediapipe /mediapipe/
