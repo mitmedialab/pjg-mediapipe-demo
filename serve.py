@@ -82,11 +82,12 @@ def hand():
 
     try:
         os.remove(processed_local_path)
+        os.remove(source_local_path)
     except OSError as os_error:
         logger.error(f'Error: {os_error.filename} {os_error.strerror}')
         return Response("Internal Server Error", status=500)
 
-    return Response("{'a':'b'}", status=201, mimetype='application/json')
+    return Response("{'archive_id': "+archive_id+", 'processed': true }", status=201, mimetype='application/json')
 
 
 if __name__ == '__main__':
