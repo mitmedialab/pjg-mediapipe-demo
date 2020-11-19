@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  mediapipe_web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - ./.env
+    environment:
+      - ENVIRONMENT=dev
+    command: python3 serve.py
+    ports:
+      - "8080:8080"
