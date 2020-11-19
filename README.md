@@ -9,13 +9,15 @@ Demo of media pipe python integration with Django
 ### Docker / Local
 
 #### Option 1: Pre-releases
-- Release was generated with `docker save 'pjg-mediapipe-demo_mediapipe_web' > pjg-mediapipe-demo_mediapipe_web.v0.0.1.tar` 
-  - and gzipped
-- Download the latest [tar.gz release](https://github.com/mitmedialab/pjg-mediapipe-demo/releases/tag/0.0.1)
-- Unzip the file
-- load the tar as a docker image with `docker load pjg-mediapipe-demo_mediapipe_web.v0.0.1.tar`
+- Download the latest [tar.gz release](https://github.com/mitmedialab/pjg-mediapipe-demo/releases/tag/0.0.1) 
+  - [Alternate link](https://drive.google.com/file/d/1Yjvdu08ujZdwVsBcYRSFhoyO75m90bVq/view?usp=sharing)
+  - should be 3.32 GB unzipped
+  - Unzip the file, should be 3.32 gb
+- load the tar as a docker image with `docker load -i pjg-mediapipe-demo_mediapipe_web.v0.0.1.tar`
 - Run the image which should be tagged as `pjg-mediapipe-demo_mediapipe_web:latest` and image sha `782f523505a4`
   - `docker run -p 8080:8080 --env-file .env 782f523505a4 python3 serve.py`
+- Optional
+  - Release was generated with `docker save 'pjg-mediapipe-demo_mediapipe_web' > pjg-mediapipe-demo_mediapipe_web.v0.0.1.tar` and gzipped
 
 #### Option 2a: Building Mediapipe Container
 - Taken from https://google.github.io/mediapipe/getting_started/install.html
