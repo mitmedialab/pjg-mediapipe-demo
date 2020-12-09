@@ -91,4 +91,5 @@ def hand():
 
 
 if __name__ == '__main__':
+    logger.info(f'Starting server on PORT: {PORT} Host: 0.0.0.0 ')
     app.run(host='0.0.0.0', port=PORT)

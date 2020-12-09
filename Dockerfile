@@ -12,3 +12,5 @@ RUN pip3 install -r requirements_server.txt
 #RUN useradd -g webapps mediapipe
 #RUN chown -R --no-dereference mediapipe:webapps /webapps/mediapipe /mediapipe/
 #USER mediapipe
+
+CMD ["/usr/bin/python3", "/mediapipe/serve.py"]

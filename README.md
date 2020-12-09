@@ -28,7 +28,8 @@ Demo of media pipe python integration with Django
 - NOTES: [Setting environmental variables](https://cloud.google.com/run/docs/configuring/environment-variables) based 
 on [sample](./env-sample)
 - NOTES: [Quick Build](https://cloud.google.com/cloud-build/docs/quickstart-build)
-- NOTES: [Quick Start Deploy](https://cloud.google.com/cloud-build/docs/quickstart-deploy) 
+- NOTES: [Quick Start Deploy](https://cloud.google.com/cloud-build/docs/quickstart-deploy)
+- NOTES: [Automating Deploys](https://cloud.google.com/cloud-build/docs/deploying-builds/deploy-cloud-run) 
 
 
 ## Local Setup
@@ -48,7 +49,7 @@ on [sample](./env-sample)
   - `docker-compose up`
 
 
-#### Alternate 1: Pre-release Tarball
+#### Alternate 1: Pre-release Tarball (likely Outdated)
 - STEP: Download the latest [tar.gz release](https://github.com/mitmedialab/pjg-mediapipe-demo/releases/tag/0.0.1) 
   - [Alternate link](https://drive.google.com/file/d/1Yjvdu08ujZdwVsBcYRSFhoyO75m90bVq/view?usp=sharing)
   - should be 3.32 GB unzipped
