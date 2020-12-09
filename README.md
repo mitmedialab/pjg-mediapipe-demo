@@ -23,7 +23,7 @@ Demo of media pipe python integration with Django
 - Taken from https://google.github.io/mediapipe/getting_started/install.html
 - In a sibling folder, `git clone git@github.com:mitmedialab/mediapipe.git`
 - `docker build --tag=mediapipe .`
-- Quick Test (optiona1)
+- Quick Test (optional)
   - `docker run -it --name mediapipe mediapipe:latest`
   - `root@bca08b91ff63:/mediapipe# GLOG_logtostderr=1 bazel run --define MEDIAPIPE_DISABLE_GPU=1 mediapipe/examples/desktop/hello_world:hello_world`
 
@@ -36,14 +36,28 @@ Demo of media pipe python integration with Django
 
 ## Cloud Setup
 
-### Cloud Run
-- ...
+### Cloud
+- Install [gcloud](https://cloud.google.com/sdk/docs/install) 
+- `gcloud auth login` choose the appropriate GCP account
+- `gcloud config set project a-counting-sign-language`
+- Ensure you have IAM permissions to view Cloud Run, Compute Engine, and Artifact Repository in the appropriate GCP account
 
-### Temporary GCP Server
-- (Dwayne's Personal) `gcloud beta compute ssh --zone "us-east4-c" "mediapipe-server" --project "mystical-slate-241320"`
-- Follow https://google.github.io/mediapipe/getting_started/install.html#installing-on-debian-and-ubuntu
-  - and https://dev.classmethod.jp/articles/mediapipe-install-on-aws-ec2-with-gpu-english/
-- `GLOG_logtostderr=1 bazel run --define MEDIAPIPE_DISABLE_GPU=1 mediapipe/examples/desktop/hello_world:hello_world`
+### Artifact Repository
+- Enable Docker push
+  - `gcloud auth configure-docker us-central1-docker.pkg.dev`
+- How to create a repo (only needed once)
+- `gcloud artifacts repositories create REPO_NAME --repository-format=docker \
+    --location=us-central1 --description="DESCRTIPTION"`
+- List repositories
+  - `gcloud artifacts repositories list`
+  - Or navigate to [Console](https://console.cloud.google.com/artifacts?authuser=1&project=a-counting-sign-language)
+- Assuming there is a local image as per Option 2a (already done)
+  - Based on the following [instructions](https://cloud.google.com/artifact-registry/docs/docker/pushing-and-pulling)
+  - `docker tag mediapipe us-central1-docker.pkg.dev/a-counting-sign-language/mediapipe/mediapipe`
+  - `docker push us-central1-docker.pkg.dev/a-counting-sign-language/mediapipe/mediapipe`
+
+### Cloud Run
+- [Console](https://console.cloud.google.com/run?authuser=1&project=a-counting-sign-language)
 
 
 ## Test Data
