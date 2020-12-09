@@ -1,0 +1,5 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [ 'build', '-t', 'us-central1-docker.pkg.dev/a-counting-sign-language/pjg-mediapipe-demo/pjg-mediapipe-demo', '.' ]
+images:
+  - 'us-central1-docker.pkg.dev/a-counting-sign-language/pjg-mediapipe-demo/pjg-mediapipe-demo'

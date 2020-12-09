@@ -1,4 +1,4 @@
-FROM mediapipe:latest
+FROM us-central1-docker.pkg.dev/a-counting-sign-language/mediapipe/mediapipe:latest
 ENV PYTHONUNBUFFERED 1
 
 WORKDIR /mediapipe
