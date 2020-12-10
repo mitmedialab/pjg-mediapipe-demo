@@ -3,6 +3,7 @@ ENV PYTHONUNBUFFERED 1
 
 WORKDIR /mediapipe
 
+COPY hello.txt /mediapipe/
 COPY serve.py /mediapipe/
 COPY requirements.txt /mediapipe/requirements_server.txt
 RUN pip3 install -r requirements_server.txt

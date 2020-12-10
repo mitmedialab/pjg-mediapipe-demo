@@ -96,3 +96,13 @@ on [sample](./env-sample)
 
 ### Testing
 - STEP: `curl -d '{"archive_id": "126f8d71-3116-43b0-8cd5-d7c73cdf8185"}' -H 'Content-Type: application/json' https://pjg-mediapipe-demo-czcfo4ghca-uc.a.run.app/hand` 
+
+## Development
+- ADD files in Dockerfile with COPY command
+- Remove old containers with `docker rm [CONTAINER]` 
+- Remove images containers with `docker rmi [IMAGE]` 
+- Run `docker-compose build` to build docker with the file changes 
+- Run `docker-compose up` to start docker with the file changes 
+- Run in new terminal `docker docker exec -it [CONTAINER ID] /bin/bash`
+- Run `ls` to see new files
+- Run curl command or run script or whatever needs to occur appropriately 
