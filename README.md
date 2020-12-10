@@ -97,12 +97,14 @@ on [sample](./env-sample)
 ### Testing - cloud
 - STEP: `curl -d '{"archive_id": "126f8d71-3116-43b0-8cd5-d7c73cdf8185"}' -H 'Content-Type: application/json' https://pjg-mediapipe-demo-czcfo4ghca-uc.a.run.app/hand` 
 
-## Development
+## Local Development
 - ADD files in Dockerfile with COPY command
-- Remove old containers with `docker rm [CONTAINER]` 
-- Remove images containers with `docker rmi [IMAGE]` 
+- Debugging
+  - Remove old containers with `docker rm [CONTAINER]` 
+  - Remove images containers with `docker rmi [IMAGE]` 
 - Run `docker-compose build` to build docker with the file changes 
 - Run `docker-compose up` to start docker with the file changes 
 - Run in new terminal `docker docker exec -it [CONTAINER ID] /bin/bash`
-- Run `ls` to see new files
-- Run curl command or run script or whatever needs to occur appropriately 
+  - Run `ls` to see new files
+  - You can also do something like `docker docker exec -it [CONTAINER ID] ls /mediapipe` to skip the ssh step
+- Run curl command  (see testing - cloud and testing - local) or run script or whatever needs to occur appropriately 
