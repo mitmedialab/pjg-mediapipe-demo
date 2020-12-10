@@ -1,4 +1,4 @@
-FROM mediapipe:latest
+FROM us-central1-docker.pkg.dev/a-counting-sign-language/mediapipe/mediapipe:latest
 ENV PYTHONUNBUFFERED 1
 
 WORKDIR /mediapipe
@@ -12,3 +12,5 @@ RUN pip3 install -r requirements_server.txt
 #RUN useradd -g webapps mediapipe
 #RUN chown -R --no-dereference mediapipe:webapps /webapps/mediapipe /mediapipe/
 #USER mediapipe
+
+CMD ["/usr/bin/python3", "/mediapipe/serve.py"]
